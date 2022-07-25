@@ -52,10 +52,20 @@ function onDestroyBtnClick() {
 }
 
 function onPressKeydown(event) {
-  if (event.key === 'Enter') {
+  const ENTER_KEY_CODE = 'Enter';
+  const NUMPAD_ENTER_KEY_CODE = 'NumpadEnter';
+
+  const DELETE_KEY_CODE = 'Delete';
+  const ESCAPE_KEY_CODE = 'Escape';
+
+  if (event.code === ENTER_KEY_CODE || event.code === NUMPAD_ENTER_KEY_CODE) {
     onCreateBtnClick();
   }
-  if (event.key === 'Delete') {
+  if (event.code === DELETE_KEY_CODE) {
     onDestroyBtnClick();
   }
+  if (event.code === ESCAPE_KEY_CODE) {
+    controlsInput.blur();
+  }
+  console.log(event.code);
 }
